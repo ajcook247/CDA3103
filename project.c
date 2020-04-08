@@ -73,7 +73,11 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 */
 int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
+	if (PC % 4 != 0)
+		return 1; // Word not aligned
 
+	*instruction = Mem[PC >> 2];
+	return 0;
 }
 
 
