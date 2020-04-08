@@ -14,27 +14,27 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 		*ALUresult = A - B;
 
 	// If ALUControl = 010, SLT (Signed)
-	else if (ALUControl == '1')
-		// PERFORM SLT HERE
+	else if (ALUControl == '2')
+		;	// PERFORM SLT HERE
 
 	// If ALUControl = 011, SLT (Unsigned)
-	else if (ALUControl == '1')
-		// PERFORM SLT HERE
+	else if (ALUControl == '3')
+		;	// PERFORM SLT HERE
 
 	// If ALUControl = 100, AND
-	else if (ALUControl == '1')
+	else if (ALUControl == '4')
 		*ALUresult = A & B;
 
 	// If ALUControl = 101, OR
-	else if (ALUControl == '1')
+	else if (ALUControl == '5')
 		*ALUresult = A | B;
 
 	// If ALUControl = 110, SLL B 16
-	else if (ALUControl == '1')
-		// PERFORM SLL HERE
+	else if (ALUControl == '6')
+		;	// PERFORM SLL HERE
 
 	// If ALUControl = 111, NOT
-	else if (ALUControl == '1')
+	else if (ALUControl == '7')
 		*ALUresult = ~A;
 
 	if (*ALUresult == 0)
