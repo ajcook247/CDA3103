@@ -5,38 +5,51 @@
 /* 10 Points */
 void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 {
-	// If ALUControl = 000, ADD
-	if (ALUControl == '0')
-		*ALUresult = A + B;
+	switch (ALUControl)
+	{
+		case '000':
+			*ALUresult = A + B;
+			break;
+			
+		case '001':
+			*ALUresult = A - B;
+			break;
 
-	// If ALUControl = 001, SUBTRACT
-	else if (ALUControl == '1')
-		*ALUresult = A - B;
+		case '010':
+			if (A < B)
+				ALUresult = 1;
+			else
+				ALUresult = 0;
+			break;
 
-	// If ALUControl = 010, SLT (Signed)
-	else if (ALUControl == '2')
-		;	// PERFORM SLT HERE
+		case '011':
+			if (A < B)
+				ALUresult = 1;
+			else
+				ALUresult = 0;
+			break;
 
-	// If ALUControl = 011, SLT (Unsigned)
-	else if (ALUControl == '3')
-		;	// PERFORM SLT HERE
+		case '100':
+			*ALUresult = A & B;
+			break;
 
-	// If ALUControl = 100, AND
-	else if (ALUControl == '4')
-		*ALUresult = A & B;
+		case '101':
+			*ALUresult = A | B;
+			break;
 
-	// If ALUControl = 101, OR
-	else if (ALUControl == '5')
-		*ALUresult = A | B;
+		case '110':
+			*ALUresult = B << 16;
+			break;
 
-	// If ALUControl = 110, SLL B 16
-	else if (ALUControl == '6')
-		;	// PERFORM SLL HERE
+		case '111':
+			*ALUresult = ~A;
+			break;
 
-	// If ALUControl = 111, NOT
-	else if (ALUControl == '7')
-		*ALUresult = ~A;
+		default:
+			break;
+	}
 
+	// Set the value of Zero depending on ALUresult
 	if (*ALUresult == 0)
 		*Zero = '1';
 	else
