@@ -8,35 +8,35 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 	// If ALUControl = 000, ADD
 	if (ALUControl == '0')
 		*ALUresult = A + B;
-	
+
 	// If ALUControl = 001, SUBTRACT
 	else if (ALUControl == '1')
 		*ALUresult = A - B;
-	
+
 	// If ALUControl = 010, SLT (Signed)
 	else if (ALUControl == '1')
 		// PERFORM SLT HERE
-	
+
 	// If ALUControl = 011, SLT (Unsigned)
 	else if (ALUControl == '1')
 		// PERFORM SLT HERE
-	
+
 	// If ALUControl = 100, AND
 	else if (ALUControl == '1')
 		*ALUresult = A & B;
-	
+
 	// If ALUControl = 101, OR
 	else if (ALUControl == '1')
 		*ALUresult = A | B;
-	
+
 	// If ALUControl = 110, SLL B 16
 	else if (ALUControl == '1')
 		// PERFORM SLL HERE
-	
+
 	// If ALUControl = 111, NOT
 	else if (ALUControl == '1')
 		*ALUresult = ~A;
-	
+
 	if (*ALUresult == 0)
 		*Zero = '1';
 	else
@@ -111,4 +111,3 @@ void PC_update(unsigned jsec,unsigned extended_value,char Branch,char Jump,char 
 {
 
 }
-
