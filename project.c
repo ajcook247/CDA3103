@@ -90,7 +90,32 @@ int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 */
 void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsigned *r2, unsigned *r3, unsigned *funct, unsigned *offset, unsigned *jsec)
 {
+	/*
+		op,	// instruction [31-26]
+		r1,	// instruction [25-21]
+		r2,	// instruction [20-16]
+		r3,	// instruction [15-11]
+		funct,	// instruction [5-0]
+		offset,	// instruction [15-0]
+		jsec;	// instruction [25-0]
+	*/
 
+	// BitMaskOP represents first 6 bits, & with *op to keep
+	int opMask 			= 0b11111100000000000000000000000000;
+	int r1Mask 			= 0b00000011111000000000000000000000;
+	int r2Mask 			= 0b00000000000111110000000000000000;
+	int r3Mask 			= 0b00000000000000001111100000000000;
+	int functMask 	= 0b11111100000000000000000000011111;
+	int offsetMask 	= 0b11111100000000001111111111111111;
+	int jsecMask 		= 0b00000011111111111111111111111111;
+
+	*op = instruction & opMask;
+	*r1 = instruction & r1Mask;
+	*r2 = instruction & r2Mask;
+	*r3 = instruction & r3Mask;
+	*funct = instruction & functMask;
+	*offset = instruction & offsetMask;
+	*jsec = instruction & jsecMask;
 }
 
 
@@ -111,7 +136,127 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 */
 int instruction_decode(unsigned op,struct_controls *controls)
 {
+	/*
+	char RegDst;
+	char Jump;
+	char Branch;
+	char MemRead;
+	char MemtoReg;
+	char ALUOp;
+	char MemWrite;
+	char ALUSrc;
+	char RegWrite;
+	*/
 
+	switch (op)
+	{
+
+		case '0':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '1':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '2':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '3':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '4':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '5':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '6':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+
+		case '7':
+			Controls->RegDst =
+			Controls->Jump =
+			Controls->Branch =
+			Controls->MemRead =
+			Controls->MemtoReg =
+			Controls->ALUOp =
+			Controls->MemWrite =
+			Controls->ALUSrc =
+			Controls->RegWrite =
+			break;
+
+		default:
+			break;
+	}
 }
 
 /* Read Register */
