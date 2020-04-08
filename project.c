@@ -151,107 +151,108 @@ int instruction_decode(unsigned op,struct_controls *controls)
 	switch (op)
 	{
 
+		// CANT SWAP BETWEEN CHARACTERS -- NEED THE OPCODE
 		case '0':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '1':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '2':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '3':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '4':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '5':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '6':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 
 		case '7':
-			Controls->RegDst =
-			Controls->Jump =
-			Controls->Branch =
-			Controls->MemRead =
-			Controls->MemtoReg =
-			Controls->ALUOp =
-			Controls->MemWrite =
-			Controls->ALUSrc =
-			Controls->RegWrite =
+			Controls->RegDst = '';
+			Controls->Jump = '';
+			Controls->Branch = '';
+			Controls->MemRead = '';
+			Controls->MemtoReg = '';
+			Controls->ALUOp = '';
+			Controls->MemWrite = '';
+			Controls->ALUSrc = '';
+			Controls->RegWrite = '';
 			break;
 
 		default:
