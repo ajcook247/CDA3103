@@ -331,7 +331,7 @@ int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigne
 			else
 				ALU(data1, data2, ALUOp, ALUresult, Zero);
 			break;
-			
+
 		case '1': // subtract
 			if (ALUSrc == '1')
 				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
@@ -395,13 +395,22 @@ int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigne
 /*
 1. Base on the value of MemWrite or MemRead to determine memory write
 operation or memory read operation.
-2. Read the content of the memory location addressed by ALUresult to memdata.
-3. Write the value of data2 to the memory location addressed by ALUresult.
+2. Read the content of the memory location addressed by ALUresult to memdata. (LW)
+3. Write the value of data2 to the memory location addressed by ALUresult. (SW)
 4. Return 1 if a halt condition occurs; otherwise, return 0.
 */
 int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsigned *memdata,unsigned *Mem)
 {
+	if ((memWrite == '1' && memRead == '1') || (ALUresult % 4 != 0))
+		return 1;
 
+	if (memWrite == '1' && memRead == '0') // sw
+		Mem[ALUresult] = data2;
+
+	else if (memWrite == '0' && memRead == '1') // lw
+		*memdata = Mem[ALUresult];
+
+	return 0;
 }
 
 
