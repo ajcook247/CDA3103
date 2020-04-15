@@ -420,7 +420,15 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
 // 1. Write the data (ALUresult or memdata) to a register (Reg) addressed by r2 or r3.
 void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,char RegWrite,char RegDst,char MemtoReg,unsigned *Reg)
 {
+	// R: r3
+	// I: r2
 
+	if (RegWrite == '1' && MemtoReg == '1')
+		Reg[r2] = memdata;
+	else if (MemtoReg == '0' && RegDst == '1')
+		Reg[r3] = ALUresult;
+	else
+		Reg[r2] = ALUresult;
 }
 
 /* PC update */
@@ -429,5 +437,14 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
 // 1. Update the program counter (PC).
 void PC_update(unsigned jsec,unsigned extended_value,char Branch,char Jump,char Zero,unsigned *PC)
 {
-
+	if (Branch == '0' && Jump == '0')
+		*PC = *PC + 4;
+	else if (Branch == '1' && Jump == '0')
+		*PC = (extended_value << 2) + (*PC + 4);
+	else if (Branch == '0' && Jump == '1')
+	{
+		unsigned shift = jsec << 2;
+		unsigned bits = (*PC + 4) | 0xF0000000;
+		*PC = bits | shift;
+	}
 }
