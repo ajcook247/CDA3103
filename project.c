@@ -151,112 +151,138 @@ int instruction_decode(unsigned op,struct_controls *controls)
 	switch (op)
 	{
 
-		// CANT SWAP BETWEEN CHARACTERS -- NEED THE OPCODE
-		case '0':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// 0x0 - r-type
+		// 0x8 - addi
+		// 0x23 - lw
+		// 0x2b - sw
+		// 0x0f - lui
+		// 0x4 - branch
+		// 0xa - slti
+		// oxb - sltiu
+		// 0x2 - jump
+
+		// R-type
+		case 0x0:
+			Controls->RegDst = '1';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '1';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '7';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '0';
+			Controls->RegWrite = '1';
 			break;
 
-
-		case '1':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// addi
+		case 0x8:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '0';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '1';
 			break;
 
-
-		case '2':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// lw
+		case 0x23:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '1';
+			Controls->MemtoReg = '1';
+			Controls->ALUOp = '0';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '1';
 			break;
 
-
-		case '3':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+			// sw
+		case 0x2b:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '0';
+			Controls->MemWrite = '1';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '2';
 			break;
 
-
-		case '4':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// lui
+		case 0x0f:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '6';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '1';
 			break;
 
-
-		case '5':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// branch
+		case 0x4:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '1';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '1';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '0';
+			Controls->RegWrite = '1';
 			break;
 
-
-		case '6':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// slti
+		case 0xa:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '2';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '1';
 			break;
 
+		// sltiu
+		case 0xb:
+			Controls->RegDst = '0';
+			Controls->Jump = '0';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '3';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '1';
+			Controls->RegWrite = '1';
+			break;
 
-		case '7':
-			Controls->RegDst = '';
-			Controls->Jump = '';
-			Controls->Branch = '';
-			Controls->MemRead = '';
-			Controls->MemtoReg = '';
-			Controls->ALUOp = '';
-			Controls->MemWrite = '';
-			Controls->ALUSrc = '';
-			Controls->RegWrite = '';
+		// jump
+		case 0x2:
+			Controls->RegDst = '0';
+			Controls->Jump = '1';
+			Controls->Branch = '0';
+			Controls->MemRead = '0';
+			Controls->MemtoReg = '0';
+			Controls->ALUOp = '2';
+			Controls->MemWrite = '0';
+			Controls->ALUSrc = '2';
+			Controls->RegWrite = '2';
 			break;
 
 		default:
+			return 1;
 			break;
+
+		return 0;
 	}
 }
 
