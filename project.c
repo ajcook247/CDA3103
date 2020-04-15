@@ -323,7 +323,70 @@ void sign_extend(unsigned offset,unsigned *extended_value)
 */
 int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned *ALUresult,char *Zero)
 {
+	switch (ALUOp)
+	{
+		case '0': // add
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+			
+		case '1': // subtract
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
 
+		case '2': // slt (signed)
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		case '3': // slt (unsigned)
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		case '4': // and
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		case '5': // or
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		case '6': // sll
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		case '7': // not
+			if (ALUSrc == '1')
+				ALU(data1, extended_value, ALUOp, ALUresult, Zero);
+			else
+				ALU(data1, data2, ALUOp, ALUresult, Zero);
+			break;
+
+		default:
+			return 1;
+			break;
+
+		return 0;
+	}
 }
 
 /* Read / Write Memory */
