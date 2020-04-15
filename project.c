@@ -256,7 +256,10 @@ int instruction_decode(unsigned op,struct_controls *controls)
 			break;
 
 		default:
+			return 1;
 			break;
+
+		return 0;
 	}
 }
 
