@@ -301,7 +301,14 @@ void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigne
 // Assign the sign-extended value of offset to extended_value.
 void sign_extend(unsigned offset,unsigned *extended_value)
 {
+	// negative = fill 1, positive = fill 0
+	unisnged extends = 0xffff0000;
+	unsigned negative = offset >> 16;
 
+	if (negative == 1)
+		*extended_value = offset | extends;
+	else
+		*extended_value = offset & 0x0000ffff
 }
 
 /* ALU operations */
