@@ -1,5 +1,8 @@
 #include "spimcore.h"
 
+// Adam Cook
+// Noy Mizrachi
+// Joshua Colston
 
 /* ALU */
 /* 10 Points */
